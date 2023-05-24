@@ -15,7 +15,9 @@
     "noEmit": true,
     "outDir": "dist",
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["./coverage", "./dist", "__tests__", "jest.config.js"],
 }

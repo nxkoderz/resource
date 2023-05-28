@@ -1,5 +1,3 @@
-import request from 'supertest';
-
 describe('App', () => {
   it('should respond with "Hello, World!" when GET /hello', async () => {
     // const response = await request(user).get('/hello');

@@ -35,7 +35,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "start": "ts-node src/index.ts",
+    "start": "ts-node src/server.ts",
     "dev": "nodemon",
     "test": "jest --coverage",
     "typeorm": "typeorm-ts-node-commonjs -d ./src/data-source.ts",

@@ -12,7 +12,7 @@ export default class BeepController extends BaseController{
     }
 
     initRoutes() {
-        throw new Error("Method not implemented.");
+        this.router.get(this.path, this.getPing)
     }
 
     getPing = (req: Request, res: Response) => {

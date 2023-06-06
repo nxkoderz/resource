@@ -2,6 +2,9 @@ import express, {Application} from 'express'
 import Logger from "./middlewares/Logger"
 import JsonBodyParser from "./middlewares/JsonBodyParser"
 import BeepController from './controllers/BeepController'
+import UserController from './controllers/UserController';
+import { UserService } from './services/UserService';
+import { UserRepository } from './repositories/UserRepository';
 class App {
   public app: Application;
   public port: number;
@@ -31,6 +34,7 @@ export default new App({
   port: 3000,
   controllers: [
     new BeepController(),
+    new UserController(new UserService(new UserRepository()))
   ],
   middlewares: [Logger, JsonBodyParser]
 })

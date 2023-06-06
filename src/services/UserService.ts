@@ -13,7 +13,11 @@ implements IUserServices{
   }
 
   getUserObject = (user: UserInterface): User => {
-    return new UserBuilder().setId(user.id)
+    return new UserBuilder()
+    .setId(user.id)
+    .setCreatedAt(user.createdAt)
+    .setUpdatedAt(user.updatedAt)
+    .setName(user.name)
     .build();
   }
 }

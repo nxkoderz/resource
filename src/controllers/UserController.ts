@@ -43,15 +43,14 @@ class UserController extends BaseController {
                 ResponseUtils.sendCreatedResponse(res, new CustomError(error));
             }
         }
-    
     }
     
     validateUser = () => {
         return [
             body('name', 'User name can not be empty').notEmpty(),
-            body('phone', 'Phone number can not be empty').notEmpty(),
-            body('userType', 'User type can not be empty').notEmpty(),
-            body('userType', 'User type should be ADMIN or USER').isIn([UserType.ADMIN, UserType.USER])
+            // body('phone', 'Phone number can not be empty').notEmpty(),
+            // body('userType', 'User type can not be empty').notEmpty(),
+            // body('userType', 'User type should be ADMIN or USER').isIn([UserType.ADMIN, UserType.USER])
         ]
     }
 }

@@ -10,11 +10,11 @@ export abstract class GenericRepository<T extends BaseEntity> implements IGeneri
   constructor(private Entity: EntityTarget<T>) {
     this.repository = AppDataSource.getRepository(this.Entity);
   }
-  // async GetById(id?: number): Promise<T> {
-  //   const criterias = { where: { id: id } as FindOptionsWhere<T> };
-  //   const entity = await this.repository.findOne(criterias);
-  //   return entity;
-  // }
+  async GetById(id?: number): Promise<T> {
+    const criterias = { where: { id: id } as FindOptionsWhere<T> };
+    const entity:any = await this.repository.findOne(criterias);
+    return entity;
+  }
 
   async Create(entity: T): Promise<T> {
     const entityCreate = this.repository.save(entity);

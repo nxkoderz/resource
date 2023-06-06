@@ -8,6 +8,7 @@ import CustomError from '../errors/CustomError';
 import { ErrorType, UserType } from '../types/UserType';
 import { User } from '../entity/User';
 import { IUserServices } from '../interfaces/GenericInterfaces/IUserServices';
+import { UserInterface } from '../interfaces/DbInterface';
 
 class UserController extends BaseController {
     router = Router();
@@ -19,11 +20,11 @@ class UserController extends BaseController {
     }
 
     initRoutes = () => {
-        this.router.post(this.path, this.validateUser(), this.saveUser);
+        this.router.post(this.path, this.validateUser(), this.create);
     }
 
 
-    saveUser = async (
+    create = async (
         req: Request,
         res: Response,
     ) => {
@@ -34,7 +35,7 @@ class UserController extends BaseController {
             return;
         }else {
             try {
-                const user = req.body;
+                const user: UserInterface = req.body;
                 await this._userServices.Create(new User(user));
                 ResponseUtils.sendCreatedResponse(res, this._userServices.getUserObject(user));
             } catch (error) {

@@ -1,6 +1,7 @@
+
 import { IGenericServices } from './../interfaces/GenericInterfaces/IGenericServices';
-import { BaseEntity } from 'typeorm';
 import { IGenericRepository } from './../interfaces/GenericInterfaces/IGenericRepository';
+import { BaseEntity } from '../entity/BaseEntity';
 export abstract class GenericServices<Entity extends BaseEntity> implements IGenericServices<Entity>
 {
   constructor(protected repository: IGenericRepository<Entity>) {}
@@ -12,10 +13,10 @@ export abstract class GenericServices<Entity extends BaseEntity> implements IGen
     const response = await this.repository.GetAll();
     return response;
   }
-  // async GetById(id?: number): Promise<Entity> {
-  //   const response = await this.repository.GetById(id);
-  //   return response;
-  // }
+  async GetById(id?: number): Promise<Entity> {
+    const response = await this.repository.GetById(id);
+    return response;
+  }
   async Update(id: number, entity: Entity): Promise<Entity> {
     const response = await this.repository.Update(id, entity);
     return response;

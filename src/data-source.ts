@@ -1,14 +1,15 @@
 import path from "path"
 import "reflect-metadata"
 import { DataSource } from "typeorm"
+import { DB_CONFIG } from "./utils/DatabseConfig"
 
 export const AppDataSource = new DataSource({
-    type: "postgres",
-    host: "localhost",
-    port: 5432,
-    username: "tinku",
-    password: "tinku",
-    database: "resources",
+    type: DB_CONFIG.type,
+    host: DB_CONFIG.host,
+    port: DB_CONFIG.port,
+    username: DB_CONFIG.username,
+    password: DB_CONFIG.password,
+    database: DB_CONFIG.database,
     synchronize: false,
     logging: false,
     entities: ['src/entity/*{.js,.ts}'],

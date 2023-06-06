@@ -4,8 +4,6 @@ export enum UserStatus {
 }
 
 export enum UserRoles {
-  ADMIN = "admin",
-  USER = "user",
-  MERCHANT = "b2b_merchant",
-  HOTEL_MERCHANT = 'b2b_hotel_merchant'
+  ADMIN = "ADMIN",
+  USER = "USER"
 }
